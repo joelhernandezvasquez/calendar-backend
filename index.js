@@ -26,6 +26,10 @@ app.use(express.json())
  app.use('/api/auth',require('./routes/auth'));
  app.use('/api/events',require('./routes/events'));
 
+ app.use('*',(req,res)=>{
+    res.sendFile(__dirname + '/public/index.html');
+ })
+
 // listen to request
 
 app.listen(process.env.PORT,()=>{
